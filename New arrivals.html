@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skymocatz - Shoe Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ <!-- Header Section -->
+    <div class="header">
+        <h1>skymocatz</h1>
+        <div class="marquee-container">
+            <div class="marquee-text">NEW ARRIVAL Buy latest shoes &nbsp;&nbsp;|&nbsp;&nbsp; SHIPPING GUARANTEED</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar & Icons -->
+    <div class="icons">
+        <!-- Left Navigation -->
+        <nav class="left">
+            <a href="New arrivals.html" class="nav-link">New Arrival</a>
+             <!-- Shop Dropdown with Photos -->
+            <div class="dropdown">
+                <a href="#shop" class="nav-link dropdown-toggle">Shop ▾</a>
+                <div class="dropdown-menu image-dropdown">
+                    <a href="#formal" class="dropdown-item">
+                        <img src="formal.jpg" alt="Formal" />
+                        <span>Formal</span>
+                    </a>
+                    <a href="#loafers" class="dropdown-item">
+                        <img src="loafers.jpg" alt="Loafers" />
+                        <span>Loafers</span>
+                    </a>
+                    <a href="#slides" class="dropdown-item">
+                        <img src="slides.jpg" alt="Slides" />
+                        <span>Slides</span>
+                    </a>
+                    <a href="#mules" class="dropdown-item">
+                        <img src="mules.jpg" alt="Mules" />
+                        <span>Mules</span>
+                    </a>
+                    <a href="#wedding" class="dropdown-item">
+                        <img src="weddingg.jpg" alt="Wedding" />
+                        <span>Wedding</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <!-- Right Action Icons -->
+        <div class="right">
+            <!-- Search Icon & Bar -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="searchBtn" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <div class="search-box" id="searchBox">
+                    <input type="text" placeholder="Search shoes..." id="searchInput" />
+                </div>
+            </div>
+
+            <!-- Account / Profile Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="accountBtn" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <div class="dropdown-popover" id="accountMenu">
+                    <a href="#login">Sign In / Register</a>
+                    <a href="#orders">My Orders</a>
+                </div>
+            </div>
+
+            <!-- Wishlist Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <path d="M10 9H8"></path>
+                    </svg>
+                    <span class="heart-badge">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Shopping Cart Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="cartBtn" aria-label="Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop">
+    <h2 class="shop-title">SHOP</h2>
+    <div class="shop-filters">
+        <a href="#all" class="filter-btn active">All</a>
+        <a href="#formal" class="filter-btn">Formal</a>
+        <a href="#loafers" class="filter-btn">Loafers</a>
+        <a href="#mules" class="filter-btn">Mules</a>
+        <a href="#slides" class="filter-btn">Slides</a>
+        <a href="#wedding" class="filter-btn">Wedding</a>
+    </div>
+</div>
+
+<section class="breadcrumb-sort-bar">
+    <div>
+        <a href="index.html" class="Home">Home</a> / 
+        <a href="#index.html" class="Home">Shop</a>
+    </div>
+
+     <!-- Example Sorting Controls -->
+    <div class="sort-container">
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 24px; font-family: system-ui, -apple-system, sans-serif;">
+  <div style="background: #ffffff; padding: 6px 14px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); border: 1px solid #f3f4f6; display: flex; align-items: center; gap: 8px;">
+    <label for="sort" style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Sort by</label>
+    <select id="sort" style="background-color: transparent; border: none; font-size: 14px; font-weight: 500; color: #1f2937; cursor: pointer; outline: none; padding: 4px 6px;">
+      <option value="default">Featured</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+    </select>
+  </div>
+</div>
+</section>
+
+<div class="containir6" id="productContainer">
+  <!-- Product Box 1 -->
+  <div class="product-box" data-price="49.99" data-id="1">
+    <div class="image-wrapper">
+      <img src="n1.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Brown oxford</h3>
+      <div class="price-tag">$49.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 2 -->
+  <div class="product-box" data-price="59.99" data-id="2">
+    <div class="image-wrapper">
+      <img src="n2.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Moccassin</h3>
+      <div class="price-tag">$59.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 3 -->
+  <div class="product-box" data-price="39.99" data-id="3">
+    <div class="image-wrapper">
+      <img src="n3.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Leather shoes</h3>
+      <div class="price-tag">$39.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 4 -->
+  <div class="product-box" data-price="29.99" data-id="4">
+    <div class="image-wrapper">
+      <img src="n4.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Velvet shoes</h3>
+      <div class="price-tag">$29.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 5 -->
+  <div class="product-box" data-price="69.99" data-id="5">
+    <div class="image-wrapper">
+      <img src="n5.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">CR7</h3>
+      <div class="price-tag">$69.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 6 -->
+  <div class="product-box" data-price="19.99" data-id="6">
+    <div class="image-wrapper">
+      <img src="n6.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">oxford gay shoes</h3>
+      <div class="price-tag">$19.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 7 -->
+  <div class="product-box" data-price="100.99" data-id="7">
+    <div class="image-wrapper">
+      <img src="loafers.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Loafers</h3>
+      <div class="price-tag">$100.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 8 -->
+  <div class="product-box" data-price="99.99" data-id="8">
+    <div class="image-wrapper">
+      <img src="chelsea.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Chelsea boots 5</h3>
+      <div class="price-tag">$99.99</div>
+    </div>
+  </div>
+
+  <!-- Product Box 9 -->
+  <div class="product-box" data-price="50.00" data-id="9">
+    <div class="image-wrapper">
+      <img src="slides.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Slides</h3>
+      <div class="price-tag">$50</div>
+    </div>
+  </div>
+
+  <!-- Product Box 10 -->
+  <div class="product-box" data-price="76.80" data-id="10">
+    <div class="image-wrapper">
+      <img src="mules.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Mules</h3>
+      <div class="price-tag">$76.8</div>
+    </div>
+  </div>
+
+  <!-- Product Box 11 -->
+  <div class="product-box" data-price="199.90" data-id="11">
+    <div class="image-wrapper">
+      <img src="boots.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">American boots</h3>
+      <div class="price-tag">$199.9</div>
+    </div>
+  </div>
+
+  <!-- Product Box 12 -->
+  <div class="product-box" data-price="199.80" data-id="12">
+    <div class="image-wrapper">
+      <img src="sneakers.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Sneakers</h3>
+      <div class="price-tag">$199.8</div>
+    </div>
+  </div>
+
+  <!-- Product Box 13 -->
+  <div class="product-box" data-price="136.70" data-id="13">
+    <div class="image-wrapper">
+      <img src="Monk.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Monk Straps</h3>
+      <div class="price-tag">$136.7</div>
+    </div>
+  </div>
+
+  <!-- Product Box 14 -->
+  <div class="product-box" data-price="38.50" data-id="14">
+    <div class="image-wrapper">
+      <img src="cross.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Crocs</h3>
+      <div class="price-tag">$38.5</div>
+    </div>
+  </div>
+
+  <!-- Product Box 15 -->
+  <div class="product-box" data-price="76.80" data-id="15">
+    <div class="image-wrapper">
+      <img src="oxford.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">Oxford</h3>
+      <div class="price-tag">$76.8</div>
+    </div>
+  </div>
+
+  <!-- Product Box 16 -->
+  <div class="product-box" data-price="76.80" data-id="16">
+    <div class="image-wrapper">
+      <img src="velvet loafers.jpg" alt="Product Image">
+      <button class="wishlist-btn" aria-label="Add to wishlist">
+        <svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">velvet loafers</h3>
+      <div class="price-tag">$76.8</div>
+    </div>
+  </div>
+</div>
+  
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchBox = document.getElementById('searchBox');
+    const searchInput = document.getElementById('searchInput');
+    // Make product images clickable to redirect directly to cart/checkout
+const productBoxes = document.querySelectorAll('.product-box');
+
+productBoxes.forEach(box => {
+    const img = box.querySelector('.image-wrapper img');
+    if (!img) return;
+
+    // Add pointer cursor style so users know it's clickable
+    img.style.cursor = 'pointer';
+
+    img.addEventListener('click', function () {
+        const titleEl = box.querySelector('.product-title');
+        const priceAttr = box.getAttribute('data-price');
+        const title = titleEl ? titleEl.textContent.trim() : 'Product';
+        const price = priceAttr ? priceAttr : '0.00';
+        const imgSrc = img.getAttribute('src');
+
+        // Build target URL passing details to cart.html
+        const cartUrl = `cart.html?product=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}&img=${encodeURIComponent(imgSrc)}`;
+
+        // Redirect user to cart page
+        window.location.href = cartUrl;
+    });
+});
+
+    function getProductBoxes() {
+        return document.querySelectorAll(".product-box");
+    }
+
+    // 1. Wishlist Badge & State
+    function updateWishlistBadge() {
+        const currentList = JSON.parse(localStorage.getItem("skymocatz_wishlist")) || [];
+        const wishlistBtn = document.getElementById("wishlistBtn");
+        if (!wishlistBtn) return;
+        
+        let badge = wishlistBtn.querySelector(".wishlist-count-badge");
+        if (!badge) {
+            badge = document.createElement("span");
+            badge.className = "wishlist-count-badge";
+            badge.style.cssText = "position:absolute; top:0; right:0; background:#ff3b30; color:white; font-size:10px; font-weight:bold; padding:2px 5px; border-radius:50%;";
+            wishlistBtn.style.position = "relative";
+            wishlistBtn.appendChild(badge);
+        }
+        
+        badge.textContent = currentList.length;
+        badge.style.display = currentList.length > 0 ? "inline-block" : "none";
+    }
+
+    const headerWishlistBtn = document.getElementById("wishlistBtn");
+    if (headerWishlistBtn) {
+        headerWishlistBtn.addEventListener("click", () => {
+            window.location.href = "wishlist.html";
+        });
+    }
+
+    getProductBoxes().forEach(box => {
+        const productId = box.getAttribute("data-id");
+        const btn = box.querySelector(".wishlist-btn");
+        if (!btn) return;
+
+        const savedWishlist = JSON.parse(localStorage.getItem("skymocatz_wishlist")) || [];
+        if (savedWishlist.includes(productId)) {
+            btn.classList.add("active");
+        }
+
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            btn.classList.toggle("active");
+            
+            let wishlist = JSON.parse(localStorage.getItem("skymocatz_wishlist")) || [];
+            if (btn.classList.contains("active")) {
+                if (!wishlist.includes(productId)) wishlist.push(productId);
+            } else {
+                wishlist = wishlist.filter(id => id !== productId);
+            }
+            localStorage.setItem("skymocatz_wishlist", JSON.stringify(wishlist));
+            updateWishlistBadge();
+        });
+    });
+
+    updateWishlistBadge();
+
+    // 2. Search Box Toggle
+    if (searchBtn && searchBox) {
+        searchBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchBox.classList.toggle('active');
+            
+            if (searchBox.classList.contains('active')) {
+                searchBox.style.display = 'block';
+                if (searchInput) searchInput.focus();
+            } else {
+                searchBox.style.display = 'none';
+            }
+        });
+
+        // Prevent clicks inside search box from closing it
+        searchBox.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // 3. Direct Search Filtering Logic
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase().trim();
+            const productBoxes = getProductBoxes();
+
+            console.log("Typing search query:", searchTerm); // Check console to verify it reads input
+
+            productBoxes.forEach(product => {
+                const titleEl = product.querySelector('.product-title');
+                if (titleEl) {
+                    const productName = titleEl.textContent.toLowerCase();
+                    
+                    if (searchTerm === "" || productName.includes(searchTerm)) {
+                        product.style.removeProperty('display'); // Show item
+                    } else {
+                        product.style.setProperty('display', 'none', 'important'); // Hide item
+                    }
+                }
+            });
+        });
+    }
+
+    // 4. Safe Outside Click
+    document.addEventListener('click', (e) => {
+        if (searchBox && !e.target.closest('.icon-wrapper')) {
+            searchBox.classList.remove('active');
+            searchBox.style.display = 'none';
+        }
+    });
+
+    // 5. Sorting Function
+    const sortElement = document.getElementById('sort');
+    if (sortElement) {
+      sortElement.addEventListener('change', function () {
+        const container = document.getElementById('productContainer');
+        if (!container) return;
+        const boxes = Array.from(container.getElementsByClassName('product-box'));
+        const sortValue = this.value;
+
+        boxes.sort((a, b) => {
+          const priceA = parseFloat(a.getAttribute('data-price')) || 0;
+          const priceB = parseFloat(b.getAttribute('data-price')) || 0;
+          const idA = parseInt(a.getAttribute('data-id')) || 0;
+          const idB = parseInt(b.getAttribute('data-id')) || 0;
+
+          if (sortValue === 'price-low') return priceA - priceB;
+          if (sortValue === 'price-high') return priceB - priceA;
+          return idA - idB;
+        });
+
+        boxes.forEach(box => container.appendChild(box));
+      });
+    }
+});
+</script>
+
+</body>
+</html>

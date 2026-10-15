@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skymocatz - Shoe Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>skymocatz</h1>
+        <div class="marquee-container">
+            <div class="marquee-text">NEW ARRIVAL Buy latest shoes &nbsp;&nbsp;|&nbsp;&nbsp; SHIPPING GUARANTEED</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar & Icons -->
+    <div class="icons">
+        <!-- Left Navigation -->
+        <nav class="left">
+            <a href="New arrivals.html" class="nav-link">New Arrival</a>
+
+            <!-- Shop Dropdown with Photos -->
+            <div class="dropdown">
+  <a href="cart.html" class="nav-link dropdown-toggle">Shop ▾</a>
+  <div class="dropdown-menu image-dropdown">
+    
+    <!-- Formal Shoes -->
+    <a href="cart.html" class="dropdown-item">
+      <img src="formal.jpg" alt="Formal" />
+      <span>Formal</span>
+    </a>
+
+    <!-- Loafers -->
+    <a href="cart.html" class="dropdown-item">
+      <img src="loafers.jpg" alt="Loafers" />
+      <span>Loafers</span>
+    </a>
+
+    <!-- Slides -->
+    <a href="cart.html" class="dropdown-item">
+      <img src="slides.jpg" alt="slides" />
+      <span>Slides</span>
+    </a>
+
+    <!-- Mules -->
+    <a href="cart.html" class="dropdown-item">
+      <img src="mules.jpg" alt="Mules" />
+      <span>Mules</span>
+    </a>
+
+    <!-- Wedding -->
+    <a href="cart.html" class="dropdown-item">
+      <img src="weddingg.jpg" alt="wedding" />
+      <span>Wedding</span>
+    </a>
+
+  </div>
+</div>
+
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <!-- Right Action Icons -->
+        <div class="right">
+            <!-- Search Icon & Bar -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="searchBtn" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <div class="search-box" id="searchBox">
+                    <input type="text" placeholder="Search shoes..." id="searchInput" />
+                </div>
+            </div>
+
+            <!-- Account / Profile Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="accountBtn" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <div class="dropdown-popover" id="accountMenu">
+                    <a href="#login">Sign In / Register</a>
+                    <a href="#orders">My Orders</a>
+                </div>
+            </div>
+
+            <!-- Wishlist Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <path d="M10 9H8"></path>
+                    </svg>
+                    <span class="heart-badge">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Shopping Cart Icon -->
+            <div class="icon-wrapper">
+                <button class="icon-btn" id="cartBtn" aria-label="Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Carousel Hero Section -->
+    <div class="big-image">
+        <div class="carousel-track">
+            <div class="carousel-slide active"><img src="image 5.jpg" alt="Shoe Image 1"></div>
+            <div class="carousel-slide"><img src="image4.jpeg" alt="Shoe Image 2"></div>
+            <div class="carousel-slide"><img src="images2.jpg" alt="Shoe Image 3"></div>
+            <div class="carousel-slide"><img src="wedding image.jpg" alt="Shoe Image 4"></div>
+            <div class="carousel-slide"><img src="image4.jpeg" alt="Shoe Image 5"></div>
+        </div>
+        <!-- Carousel Navigation Buttons -->
+        <button class="carousel-btn prev" aria-label="Previous Slide">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Next Slide">&#10095;</button>
+    </div>
+
+    <!-- Next Section Below Carousel -->
+    <section class="next-section">
+        <h2>Featured Collection</h2>
+        <p>Explore our latest arrivals and trending shoes below.</p>
+
+        <!-- Product Grid Container -->
+    <div class="product-grid">
+        <div class="chelsea">
+            <a href="New arrivals.html"><img src="chelsea.jpg" alt="chelsea"></a>
+            <p>Chelsea Boots</p>
+        </div>
+        <div class="boots">
+            <a href="New arrivals.html"><img src="boots.jpg" alt="boots"></a>
+            <p>Boots</p>
+        </div>
+        <div class="oxford">
+            <a href="New arrivals.html"><img src="oxford.jpg" alt="oxford"></a>
+            <p>Oxford Shoes</p>
+        </div>
+        <div class="loafers">
+            <a href="New arrivals.html"><img src="loafers.jpg" alt="loafers"></a>
+            <p>Loafers</p>
+        </div>
+        <div class="sneakers">
+            <a href="New arrivals.html"><img src="sneakers.jpg" alt="sneakers"></a>
+            <p>Sneakers</p>
+        </div>
+        <div class="monk">
+            <a href="New arrivals.html"><img src="Monk.jpg" alt="monk"></a>
+            <p>Monk Straps</p>
+        </div>
+        <div class="flipflop">
+            <a href="New arrivals.html"><img src="flipflop.jpg" alt="flipflop"></a>
+            <p>Flip Flops</p>
+        </div>
+        <div class="crocs">
+            <a href="New arrivals.html"><img src="cross.jpg" alt="crocs"></a>
+            <p>Crocs</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <!-- Top Feature Banners -->
+    <div class="footer-features">
+        <div class="feature-item">
+            <!-- Fast Delivery / Lightning Icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <div>
+                <h4>FAST DELIVERY</h4>
+                <p>Receive your orders in time.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <!-- 24/7 Support / Chat Icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <div>
+                <h4>24/7 SUPPORT</h4>
+                <p>Friendly customer support.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <!-- 100% Secure / Check Shield Icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div>
+                <h4>100% SECURE</h4>
+                <p>Trust and integrity.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <!-- Best Price / Tag Icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <div>
+                <h4>BEST PRICE</h4>
+                <p>Guaranteed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Footer Links & Contact Info -->
+    <div class="footer-main">
+        <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="#customer-service">Customer Service</a></li>
+                <li><a href="#account">My account</a></li>
+                <li><a href="#store">Find a Store</a></li>
+                <li><a href="#privacy">Legal & Privacy</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#gift">Gift Card</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#careers">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+            <div class="call-section">
+                <!-- Phone Call Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <div>
+                    <span class="call-label">Call us</span>
+                    <p class="phone-number">0676503515</p>
+                </div>   
+            </div>
+            <p class="location-text">Kinondoni Mkwajuni, Dar es Salaam, Tanzania.</p>
+            
+            <!-- Instagram / Social Icon -->
+            <div class="social-icons">
+                <a href="#instagram" aria-label="Instagram" class="social-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Embedded Google Map -->
+
+<section class="location-section">
+    <div class="location-header">
+        <h2>Visit Our Store</h2>
+        <p>Kinondoni Mkwajuni, Dar es Salaam, Tanzania</p>
+    </div>
+    <div class="full-width-map">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.22285771421224!2d39.262937697655865!3d-6.796252996921925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4bc9ab699967%3A0xcb9deede9599f8ee!2sSKYMOCA%20SHOP!5e0!3m2!1sen!2stz!4v1791806288014!5m2!1sen!2stz"
+        width="100%" 
+        height="500" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+</section>
+
+
+
+<div class="header">
+        <h1>skymocatz</h1>
+        </div>
+
+
+
+
+
+
+    <!-- JavaScript Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                
+                if (index >= totalSlides) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = totalSlides - 1;
+                } else {
+                    currentIndex = index;
+                }
+                
+                slides[currentIndex].classList.add('active');
+            }
+
+            nextBtn.addEventListener('click', () => {
+                showSlide(currentIndex + 1);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                showSlide(currentIndex - 1);
+            });
+
+            // Auto-play every 4 seconds
+            setInterval(() => {
+                showSlide(currentIndex + 1);
+            }, 4000);
+
+            // Search toggle
+            const searchBtn = document.getElementById('searchBtn');
+            const searchBox = document.getElementById('searchBox');
+            const searchInput = document.getElementById('searchInput');
+
+            searchBtn.addEventListener('click', () => {
+                searchBox.classList.toggle('active');
+                if (searchBox.classList.contains('active')) {
+                    searchInput.focus();
+                }
+            });
+
+            // Account Menu toggle
+            const accountBtn = document.getElementById('accountBtn');
+            const accountMenu = document.getElementById('accountMenu');
+
+            accountBtn.addEventListener('click', () => {
+                accountMenu.classList.toggle('active');
+            });
+
+            // Cart Click Counter
+            const cartBtn = document.getElementById('cartBtn');
+            const cartCount = document.getElementById('cartCount');
+            let count = 0;
+
+            cartBtn.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+            });
+
+            // Close popups when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.icon-wrapper')) {
+                    searchBox.classList.remove('active');
+                    accountMenu.classList.remove('active');
+                }
+            });
+        });
+
+      
+    </script>
+</body>
+</html>

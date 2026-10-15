@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart & Checkout - skymocatz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1f2937; margin: 0; padding: 0; min-height: 100vh; }
+        .page-wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .checkout-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; background: #ffffff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+        @media (max-width: 768px) { .checkout-grid { grid-template-columns: 1fr; padding: 20px; } }
+        
+        .product-summary-card { background: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .product-summary-card h2 { margin-top: 0; font-size: 20px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 20px; }
+        
+        .cart-items-list { display: flex; flex-direction: column; gap: 16px; max-height: 400px; overflow-y: auto; padding-right: 5px; }
+        .cart-item-row { display: flex; align-items: center; gap: 16px; background: #ffffff; padding: 12px; border-radius: 10px; border: 1px solid #e5e7eb; }
+        .cart-item-row img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid #d1d5db; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-details h4 { margin: 0 0 4px 0; font-size: 15px; font-weight: 600; }
+        .cart-item-details .price { margin: 0; font-size: 15px; font-weight: 700; color: #059669; }
+        
+        .size-select-mini { padding: 6px 10px; border-radius: 6px; border: 1px solid #d1d5db; font-size: 13px; font-weight: 600; outline: none; }
+
+        .total-summary-box { margin-top: 20px; padding-top: 16px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+        .total-summary-box h3 { margin: 0; font-size: 18px; font-weight: 700; }
+        .total-price-text { font-size: 24px; font-weight: 800; color: #059669; }
+
+        .order-form-container h2 { font-size: 22px; font-weight: 700; margin-top: 0; margin-bottom: 24px; border-bottom: 2px solid #f3f4f6; padding-bottom: 12px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; }
+        input { width: 100%; padding: 14px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; outline: none; }
+        input:focus { border-color: #111827; }
+        .checkout-btn { width: 100%; padding: 16px; background-color: #111827; color: #ffffff; border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: background 0.2s; }
+        .checkout-btn:hover { background-color: #000; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>skymocatz</h1>
+        <div class="marquee-container">
+            <div class="marquee-text">COMPLETE YOUR ORDER &nbsp;&nbsp;|&nbsp;&nbsp; SHIPPING GUARANTEED</div>
+        </div>
+    </div>
+
+    <!-- Navigation & Breadcrumb -->
+    <section class="breadcrumb-sort-bar">
+        <div>
+            <a href="New arrivals.html" class="Home">Home</a> / 
+            <a href="cart.html" class="Home" style="color: #000; font-weight: 600;">Checkout Cart</a>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <div class="checkout-grid">
+            
+            <!-- Product List Column -->
+            <div class="product-summary-card">
+                <h2>Cart Summary</h2>
+                <div class="cart-items-list" id="cartItemsList"></div>
+
+                <div class="total-summary-box">
+                    <h3>Total Price:</h3>
+                    <div class="total-price-text" id="totalPriceDisplay">$0.00</div>
+                </div>
+            </div>
+
+            <!-- Order Form Column -->
+            <div class="order-form-container">
+                <h2>Customer & Delivery Details</h2>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="e.g. 0712345678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Delivery Location / Address</label>
+                        <input type="text" id="address" placeholder="Enter street, city or area" required>
+                    </div>
+
+                    <button type="submit" class="checkout-btn">Complete Purchase</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cartItemsList = document.getElementById("cartItemsList");
+      const totalPriceDisplay = document.getElementById("totalPriceDisplay");
+
+      let itemsToCheckout = [];
+
+      // Check if items are passed via URL parameters (single item click)
+      if (urlParams.get('product')) {
+          itemsToCheckout = [{
+              title: urlParams.get('product'),
+              price: urlParams.get('price') || "0.00",
+              img: urlParams.get('img') || "n1.jpg"
+          }];
+      } else {
+          // Check if items are stored via Wishlist/Cart storage
+          itemsToCheckout = JSON.parse(localStorage.getItem("skymocatz_checkout_items")) || [];
+      }
+
+      if (itemsToCheckout.length === 0) {
+          cartItemsList.innerHTML = `<p style="color: #777;">Your cart is currently empty.</p>`;
+          totalPriceDisplay.textContent = "$0.00";
+          return;
+      }
+
+      let grandTotal = 0;
+      cartItemsList.innerHTML = "";
+
+      itemsToCheckout.forEach((item, index) => {
+          const itemPrice = parseFloat(item.price) || 0;
+          grandTotal += itemPrice;
+
+          const itemRow = document.createElement("div");
+          itemRow.className = "cart-item-row";
+          itemRow.innerHTML = `
+              <img src="${item.img}" alt="${item.title}">
+              <div class="cart-item-details">
+                  <h4>${item.title}</h4>
+                  <p class="price">$${itemPrice.toFixed(2)}</p>
+              </div>
+              <div>
+                  <label style="font-size: 10px; margin-bottom: 2px;">Size:</label>
+                  <select class="size-select-mini" data-index="${index}">
+                      <option value="40">EU 40</option>
+                      <option value="41">EU 41</option>
+                      <option value="42" selected>EU 42</option>
+                      <option value="43">EU 43</option>
+                      <option value="44">EU 44</option>
+                  </select>
+              </div>
+          `;
+          cartItemsList.appendChild(itemRow);
+      });
+
+      totalPriceDisplay.textContent = `$${grandTotal.toFixed(2)}`;
+
+      // Handle order placement
+      document.getElementById("orderForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const fullName = document.getElementById("fullName").value;
+          alert(`Order Confirmed!\nThank you, ${fullName}.\nYour order for ${itemsToCheckout.length} item(s) totalling $${grandTotal.toFixed(2)} has been placed successfully.`);
+          
+          localStorage.removeItem("skymocatz_checkout_items");
+          window.location.href = "New arrivals.html";
+      });
+  });
+</script>
+
+</body>
+</html>

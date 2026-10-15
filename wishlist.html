@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - skymocatz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .wishlist-actions-bar {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .buy-all-btn {
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .buy-all-btn:hover {
+            background: #858b8a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>skymocatz</h1>
+        <div class="marquee-container">
+            <div class="marquee-text">YOUR SAVED WISHLIST ITEMS &nbsp;&nbsp;|&nbsp;&nbsp; SHIPPING GUARANTEED</div>
+        </div>
+    </div>
+
+    <!-- Navigation & Breadcrumb -->
+    <section class="breadcrumb-sort-bar">
+        <div>
+            <a href="New arrivals.html" class="Home">Home</a> / 
+            <a href="wishlist.html" class="Home" style="color: #000; font-weight: 600;">Wishlist</a>
+        </div>
+    </section>
+
+    <!-- Wishlist Header Section -->
+    <div class="wishlist-actions-bar">
+        <div>
+            <h2 class="shop-title" style="margin: 0;">WISHLIST</h2>
+            <p style="color: #666; margin: 4px 0 0 0;">Here are the items you have saved for later.</p>
+        </div>
+        <button id="buyAllBtn" class="buy-all-btn">
+            🛒 Buy All Wishlist Items
+        </button>
+    </div>
+
+    <!-- Product Grid Where Saved Items Will Load -->
+    <div class="containir6" id="wishlistContainer"></div>
+
+    <!-- Master Repository of Products -->
+    <div id="masterProductRepository" style="display: none;">
+      <div class="product-box" data-price="49.99" data-id="1">
+        <div class="image-wrapper"><img src="n1.jpg" alt="Brown oxford"></div>
+        <div class="product-details"><h3 class="product-title">Brown oxford</h3><div class="price-tag">$49.99</div></div>
+      </div>
+      <div class="product-box" data-price="59.99" data-id="2">
+        <div class="image-wrapper"><img src="n2.jpg" alt="Moccassin"></div>
+        <div class="product-details"><h3 class="product-title">Moccassin</h3><div class="price-tag">$59.99</div></div>
+      </div>
+      <div class="product-box" data-price="39.99" data-id="3">
+        <div class="image-wrapper"><img src="n3.jpg" alt="Leather shoes"></div>
+        <div class="product-details"><h3 class="product-title">Leather shoes</h3><div class="price-tag">$39.99</div></div>
+      </div>
+      <div class="product-box" data-price="29.99" data-id="4">
+        <div class="image-wrapper"><img src="n4.jpg" alt="Velvet shoes"></div>
+        <div class="product-details"><h3 class="product-title">Velvet shoes</h3><div class="price-tag">$29.99</div></div>
+      </div>
+      <div class="product-box" data-price="69.99" data-id="5">
+        <div class="image-wrapper"><img src="n5.jpg" alt="CR7"></div>
+        <div class="product-details"><h3 class="product-title">CR7</h3><div class="price-tag">$69.99</div></div>
+      </div>
+      <div class="product-box" data-price="19.99" data-id="6">
+        <div class="image-wrapper"><img src="n6.jpg" alt="oxford gay shoes"></div>
+        <div class="product-details"><h3 class="product-title">oxford gay shoes</h3><div class="price-tag">$19.99</div></div>
+      </div>
+      <div class="product-box" data-price="100.99" data-id="7">
+        <div class="image-wrapper"><img src="loafers.jpg" alt="Loafers"></div>
+        <div class="product-details"><h3 class="product-title">Loafers</h3><div class="price-tag">$100.99</div></div>
+      </div>
+      <div class="product-box" data-price="99.99" data-id="8">
+        <div class="image-wrapper"><img src="chelsea.jpg" alt="Chelsea boots 5"></div>
+        <div class="product-details"><h3 class="product-title">Chelsea boots 5</h3><div class="price-tag">$99.99</div></div>
+      </div>
+      <div class="product-box" data-price="50.00" data-id="9">
+        <div class="image-wrapper"><img src="slides.jpg" alt="Slides"></div>
+        <div class="product-details"><h3 class="product-title">Slides</h3><div class="price-tag">$50</div></div>
+      </div>
+      <div class="product-box" data-price="76.80" data-id="10">
+        <div class="image-wrapper"><img src="mules.jpg" alt="Mules"></div>
+        <div class="product-details"><h3 class="product-title">Mules</h3><div class="price-tag">$76.8</div></div>
+      </div>
+      <div class="product-box" data-price="199.90" data-id="11">
+        <div class="image-wrapper"><img src="boots.jpg" alt="American boots"></div>
+        <div class="product-details"><h3 class="product-title">American boots</h3><div class="price-tag">$199.9</div></div>
+      </div>
+      <div class="product-box" data-price="199.80" data-id="12">
+        <div class="image-wrapper"><img src="sneakers.jpg" alt="Sneakers"></div>
+        <div class="product-details"><h3 class="product-title">Sneakers</h3><div class="price-tag">$199.8</div></div>
+      </div>
+      <div class="product-box" data-price="136.70" data-id="13">
+        <div class="image-wrapper"><img src="Monk.jpg" alt="Monk Straps"></div>
+        <div class="product-details"><h3 class="product-title">Monk Straps</h3><div class="price-tag">$136.7</div></div>
+      </div>
+      <div class="product-box" data-price="38.50" data-id="14">
+        <div class="image-wrapper"><img src="cross.jpg" alt="Crocs"></div>
+        <div class="product-details"><h3 class="product-title">Crocs</h3><div class="price-tag">$38.5</div></div>
+      </div>
+      <div class="product-box" data-price="76.80" data-id="15">
+        <div class="image-wrapper"><img src="oxford.jpg" alt="Oxford"></div>
+        <div class="product-details"><h3 class="product-title">Oxford</h3><div class="price-tag">$76.8</div></div>
+      </div>
+      <div class="product-box" data-price="76.80" data-id="16">
+        <div class="image-wrapper"><img src="velvet loafers.jpg" alt="velvet loafers"></div>
+        <div class="product-details"><h3 class="product-title">velvet loafers</h3><div class="price-tag">$76.8</div></div>
+      </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const wishlistContainer = document.getElementById("wishlistContainer");
+            const buyAllBtn = document.getElementById("buyAllBtn");
+            const savedWishlist = JSON.parse(localStorage.getItem("skymocatz_wishlist")) || [];
+            const masterRepository = document.querySelectorAll("#masterProductRepository .product-box");
+
+            if (savedWishlist.length === 0) {
+                wishlistContainer.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; font-size: 18px; color: #777; padding: 40px;">Your wishlist is currently empty.</p>`;
+                if (buyAllBtn) buyAllBtn.style.display = "none";
+                return;
+            }
+
+            let loadedItems = [];
+
+            savedWishlist.forEach(id => {
+                masterRepository.forEach(box => {
+                    if (box.getAttribute("data-id") === id) {
+                        const productTitle = box.querySelector(".product-title").textContent;
+                        const productPrice = box.getAttribute("data-price");
+                        const productImage = box.querySelector("img").getAttribute("src");
+
+                        loadedItems.push({ id, title: productTitle, price: productPrice, img: productImage });
+
+                        const clone = box.cloneNode(true);
+                        const imageWrapper = clone.querySelector(".image-wrapper");
+
+                        const removeBtn = document.createElement("button");
+                        removeBtn.className = "wishlist-btn active";
+                        removeBtn.setAttribute("aria-label", "Remove from wishlist");
+                        removeBtn.innerHTML = `<svg class="heart-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+                        
+                        removeBtn.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            let currentList = JSON.parse(localStorage.getItem("skymocatz_wishlist")) || [];
+                            currentList = currentList.filter(item => item !== id);
+                            localStorage.setItem("skymocatz_wishlist", JSON.stringify(currentList));
+                            clone.remove();
+                            
+                            if (currentList.length === 0) {
+                                wishlistContainer.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; font-size: 18px; color: #777; padding: 40px;">Your wishlist is currently empty.</p>`;
+                                if (buyAllBtn) buyAllBtn.style.display = "none";
+                            }
+                        });
+
+                        imageWrapper.appendChild(removeBtn);
+
+                        const productDetails = clone.querySelector(".product-details");
+                        const cartBtn = document.createElement("button");
+                        cartBtn.className = "cart-action-btn";
+                        cartBtn.style.cssText = "margin-top: 10px; width: 100%; background: #111; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer;";
+                        cartBtn.innerHTML = "🛒 Add to Cart";
+
+                        cartBtn.addEventListener("click", function () {
+                            const cartData = [{ title: productTitle, price: productPrice, img: productImage }];
+                            localStorage.setItem("skymocatz_checkout_items", JSON.stringify(cartData));
+                            window.location.href = "cart.html";
+                        });
+
+                        productDetails.appendChild(cartBtn);
+                        wishlistContainer.appendChild(clone);
+                    }
+                });
+            });
+
+            // Buy All Wishlist Items Event
+            if (buyAllBtn) {
+                buyAllBtn.addEventListener("click", function () {
+                    localStorage.setItem("skymocatz_checkout_items", JSON.stringify(loadedItems));
+                    window.location.href = "cart.html";
+                });
+            }
+        });
+    </script>
+</body>
+</html>

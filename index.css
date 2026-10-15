@@ -1,0 +1,879 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* ==========================================
+   Header & Typography
+   ========================================== */
+.header {
+    background-color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    color: #000000;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: #000;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/a box for.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+.header h1 {
+    font-family: 'a box for', sans-serif;
+    font-size: 65px;
+    margin: 0;
+    padding: 10px 0;
+    letter-spacing: 1px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================
+   Navigation Bar & Icons
+   ========================================== */
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px;
+    width: 100%;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444444;
+    text-decoration: none;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.nav-link:hover {
+    color: #000000;
+}
+
+/* Dropdown Container & Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu.image-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: row;
+    gap: 16px;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu.image-dropdown {
+    display: flex;
+}
+
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #333333;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    width: 110px;
+}
+
+.dropdown-item:hover {
+    background-color: #f7f7f7;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.dropdown-item img {
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.dropdown-item span {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Right-side Icons */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    outline: none;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #cccccc;
+    transform: translateY(-1px);
+}
+
+.icon-btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.heart-badge {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    color: #ff3b30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+}
+
+/* Search Box Popover */
+.search-box {
+    display: none;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 4px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 50;
+}
+
+.search-box.active {
+    display: block;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 180px;
+}
+
+/* Account Dropdown Popover */
+.dropdown-popover {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px 0;
+    width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 100;
+}
+
+.dropdown-popover.active {
+    display: block;
+}
+
+.dropdown-popover a {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.dropdown-popover a:hover {
+    background: #f7f7f7;
+    color: #000;
+}
+
+/* ==========================================
+   Carousel Section
+   ========================================== */
+.big-image {
+    position: relative;
+    width: 100vw;
+    margin: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111111;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: all 0.25s ease-in-out;
+    z-index: 10;
+    outline: none;
+}
+
+.carousel-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn.prev {
+    left: 24px;
+}
+
+.carousel-btn.next {
+    right: 24px;
+}
+
+/* ==========================================
+   Next Section Below Carousel
+   ========================================== */
+.next-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.next-section h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-style: normal;
+}
+/* Container for the products using Flexbox */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;                       /* Allows items to wrap into rows */
+    gap: 28px;                             /* Space between boxes */
+    max-width: 1300px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    justify-content: flex-start;           /* Aligns remaining items to the left */
+}
+
+/* Individual Product Box Style */
+.product-grid > div {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    
+    /* Forces each card to maintain a fixed width, preventing stretching */
+    flex: 0 0 calc(20% - 23px);          /* Approx 5 items per row (accounting for gaps) */
+    max-width: 250px;
+}
+
+.product-grid > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Product Image Box */
+.product-grid img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 16px;
+}
+
+/* Product Label */
+.product-grid p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222222;
+}
+
+/* Utility class to completely hide items when filtering */
+.product-box.hidden {
+    display: none !important;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 900px) {
+    .product-grid > div {
+        flex: 0 0 calc(50% - 14px);        /* 2 items per row on smaller screens */
+    }
+}
+
+/* Footer Container */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 40px 40px 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Top Feature Banners Row */
+.footer-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #333333;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.feature-item svg {
+    color: #ffffff;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.feature-item h4 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+/* Main Footer Columns */
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 50px auto 0 auto;
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+}
+
+/* Footer Contact Column */
+.footer-contact {
+    max-width: 320px;
+}
+
+.call-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.call-section svg {
+    color: #ffffff;
+}
+
+.call-label {
+    display: block;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+.phone-number {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.location-text {
+    font-size: 13px;
+    color: #aaaaaa;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Social Icon Button */
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    color: #ffffff;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+    background-color: #3a3a3a;
+    transform: translateY(-2px);
+}
+
+/* Responsive layout for tablets/mobiles */
+@media (max-width: 900px) {
+    .footer-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-features {
+        grid-template-columns: 1fr;
+    }
+}
+/* Standalone Location Section */
+.location-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.location-header h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #111111;
+}
+
+.location-header p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.full-width-map {
+    max-width: 1900px; /* Matches your featured collection width */
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.full-width-map iframe {
+    display: block;
+    width: 100%;
+    filter: grayscale(10%) contrast(1.05);
+}
+/* Custom Font Declaration for z28 */
+@font-face {
+    font-family: 'z28';
+    src: url('fonts/z28.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Outer Bordered Container */
+.shop {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 60px 50px;
+    background-color: #ffffff;
+    max-width: 1300px;
+    margin: 40px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns contents to the left side */
+}
+
+/* Large Heading with 'z28' Font */
+.shop-title {
+    font-family: 'z28', sans-serif;
+    font-size: 80px;
+    margin: 0 0 30px 0;
+    color: #b0b0b0; /* Light gray outline look */
+    letter-spacing: 4px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Category Filter Links Row */
+.shop-filters {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #555555;
+    padding-bottom: 6px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.filter-btn:hover {
+    color: #000000;
+}
+
+/* Active Filter Indicator Line */
+.filter-btn.active {
+    color: #000000;
+    font-weight: 600;
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 16px;
+    height: 2px;
+    background-color: #000000;
+}
+/* Normal state */
+section a.Home {
+    color: #4b5563; /* Gray color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* Hover state */
+section a.Home:hover {
+    color: #000000; /* Turns black on hover */
+    text-decoration: underline;
+}
+
+.breadcrumb-sort-bar {
+    max-width: 1200px; /* Match your box container width */
+    margin: 16px auto;
+    padding: 0 24px; /* Match your box padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.breadcrumb-sort-bar a.Home {
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-sort-bar a.Home:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* --- Scoped Main Grid Container --- */
+.containir6 {
+  display: grid !important;
+  grid-template-columns: repeat(5, 250px) !important; /* Exactly 5 fixed columns */
+  justify-content: center !important;                  /* Centers remaining items nicely when filtered */
+  gap: 28px !important;                                /* Guaranteed clean gaps between cards */
+  max-width: 1380px !important;
+  margin: 40px auto 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* --- Scoped Individual Product Box (Only inside .containir6) --- */
+.containir6 .product-box {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* Strict size locks to prevent stretching */
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+  box-sizing: border-box !important;
+}
+
+.containir6 .product-box:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* --- Scoped Image Wrapper --- */
+.containir6 .image-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  padding-top: 100% !important; /* 1:1 Aspect Ratio */
+  background-color: #f4f4f4 !important;
+}
+
+.containir6 .image-wrapper img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background-color: #f9f9f9 !important;
+}
+
+/* Wishlist Floating Button */
+.containir6 .wishlist-btn {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+  z-index: 2 !important;
+}
+
+.containir6 .wishlist-btn:hover {
+  transform: scale(1.1) !important;
+  background: #ffffff !important;
+}
+
+/* Heart SVG Icon Styling */
+.containir6 .heart-icon {
+  width: 20px !important;
+  height: 20px !important;
+  fill: none !important;
+  stroke: #666 !important;
+  stroke-width: 2 !important;
+  transition: fill 0.3s ease, stroke 0.3s ease !important;
+}
+
+/* Active Wishlist State */
+.containir6 .wishlist-btn.active .heart-icon {
+  fill: #ff3b30 !important;
+  stroke: #ff3b30 !important;
+}
+
+/* Product Info Section */
+.containir6 .product-details {
+  padding: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.containir6 .product-title {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #333333 !important;
+  margin: 0 !important;
+}
+
+.containir6 .price-tag {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #1a1a1a !important;
+}
+
+/* --- Utility class to completely hide items when filtering --- */
+.containir6 .product-box.hidden {
+    display: none !important;
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 1400px) {
+    .containir6 {
+        grid-template-columns: repeat(4, 250px) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .containir6 {
+        grid-template-columns: repeat(3, 250px) !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .containir6 {
+        grid-template-columns: repeat(2, 250px) !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .containir6 {
+        grid-template-columns: 1fr !important;
+    }
+    .containir6 .product-box {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
